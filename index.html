@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learning</title>
+</head>
+<body style="background-color: grey; color: antiquewhite;">
+    <div>
+        <h1>Node-list and html collection are different</h1>
+    </div>
+    <div class="bg-black">
+        <h1 id="item" class = "heading">
+            Dom learning on chai or code
+        </h1>
+        <p id="item1">Lorem ipsum dolor sit amet.</p>
+        <p>console.log(window)</p>
+        <p>console.log(window.document)</p>
+        <p>console.log(document.baseURI)</p>
+        console.log(document.links)
+        console.log(document.links[2])
+        <p style="color: red;"><strong>console.dir(document)</strong></p>
+       <p>html collections, node collections on browser are not by default array. we casn change into array , for getting the properties of array</p>
+    </div> 
+    
+    <pre>
+        document.getElementbyId('firstheading').innerHTML = <>Raman</>
+    </pre>
+    <hr style="border-color: #042a63; border-width: 2px; border-style: solid;">
+    document.getElementById('item').getattribute('id')
+  <p>
+    <input type="password" name="password" id="">
+  </p>
+    
+  <div>
+    <ul>
+    <li>document.queryselector('input[type="password"]')</li>
+    <li>document.queryselector('p:first-child')</li>
+    <li>y</li>
+    <li>f</li></ul>
+
+<ul >
+    <li  class = 'list-item'>p<l/li>
+    <li class = 'list-item'>sf</li>
+    <li class = 'list-item'>safsa</li>
+</ul>
+    <pre>
+        const templist = document.queryselectorAll(li)
+        templist[0].style.color= green
+        templist.forEach( function (l) {
+            l.style.bgc ='green'
+        } )
+    </pre>
+  </div>
+  <hr style="border-color: #042a63; border-width: 2px; border-style: solid;">
+
+<h1 class="rishabh">How to create a new Element through DOM</h1>
+
+
+
+  <script>
+    let myul = document.querySelector('ul')
+    let list = myul.querySelector('li:nth-child(3)')
+    list.style.backgroundColor = "green"
+    list.innerHTML = "Raman"
+    list.style.color = "red"
+
+    document.getElementsByClassName('list-item')  //HTMLCollection [ul.list-item]
+    const templist = document.getElementsByClassName('list-item') // this is html collection
+    // we need to convert it into Arrsay
+    const myConvertedArray = Array.from(templist)
+    let heading1 = document.querySelector('.rishabh')
+    heading1.style.color = 'orange'
+  </script>
+</body>
+</html>

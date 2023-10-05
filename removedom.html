@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Reduce in DOM</title>
+</head>
+<body style="background-color: cadetblue;">
+    <ul class="language">
+        <li>Javascript</li>
+       
+    </ul>
+</body>
+<script>
+    function addLanguage(...arr) {
+    const unlist = document.querySelector('.language')
+
+    // for (const languageName of arr) {
+    // const li = document.createElement('li');
+    // li.innerHTML = languageName;
+    // unlist.appendChild(li);
+    //     }
+
+    // arr.forEach( (items) => {
+    //         const li = document.createElement('li')
+    //         li.innerHTML = items
+    //         unlist.appendChild(li)
+    // })
+
+arr.map( (radar) => {
+            const li = document.createElement('li')
+            li.innerHTML = radar
+            unlist.appendChild(li)
+} )
+
+
+        // for (let i = 0; i < arr.length; i++) {
+        //     const li = document.createElement('li');
+        //     li.innerHTML = arr[i];
+        //     unlist.appendChild(li);
+            
+        // }
+
+    }
+    let programmingLanguage = ["cpp", "java", "python"]
+    // addLanguage(...programmingLanguage)
+
+
+
+    function addOptimizedcode(languageName) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(languageName) )
+        const unlist = document.querySelector('.language')
+        unlist.appendChild(li)
+
+    }
+    addOptimizedcode('golang')
+
+        //EDit
+        const secondLang = document.querySelector("li:nth-child(2)")
+        // secondLang.innerHTML = "mojo"
+        // secondLang.textContent = "Kojo"
+        let redhat = document.createElement('li');redhat.textContent = 'redhat';
+        secondLang.replaceWith(redhat)  //important
+
+        //edit
+        const firstLanguage = document.querySelector("li:nth-child(1)")
+        firstLanguage.outerHTML = '<li>TypeScript</li>'
+
+        //to remove
+
+        const lastLanguage = document.querySelector("li:last-child")
+        lastLanguage.remove()
+
+
+
+
+</script>
+</html>

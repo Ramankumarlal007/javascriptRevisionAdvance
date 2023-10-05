@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodelist</title>
+    <style>
+        .background {
+            background-color: #212121;
+            color: burlywood;
+        }
+    </style>
+</head>
+<body class = "background">
+    <h1>hi</h1>
+</body>
+
+<script>
+function getRandomColor() {
+    const randomRed = Math.floor(Math.random() * 256); // Random value between 0 and 255
+    const randomGreen = Math.floor(Math.random() * 256);
+    const randomBlue = Math.floor(Math.random() * 256);
+    
+    // Create an RGB color string
+    const color = `rgb(${randomRed},${randomGreen},${randomBlue})`;
+    
+    return color;
+}
+
+
+    let divCreation = function () {
+    const div = document.createElement('div')
+    console.log(div);
+    div.className = 'main'
+    div.id = Math.round(Math.random() * 10 + 1)
+    div.setAttribute('tilte', "generated title")//key and value, setAttribute directly set the value
+    div.style.backgroundColor = getRandomColor()
+    div.style.padding = '12px'
+    // div.innerText = 'Rishabh is  good boy' // it overrides the previous values. ye le k ata hai then set karta hai
+    const addText = document.createTextNode("Risahh is a good boyz") // optimized, preferred
+    div.appendChild(addText)
+    div.style.color = getRandomColor()
+    let child = document.body.appendChild(div)
+    }
+
+
+    let green = function (createNewdiv) {
+    //     for (let i = 0; i < 3; i++) {
+    //         divCreation();
+            
+    //  }
+    divCreation()
+    }
+ 
+green()
+
+setInterval(() => {
+    setTimeout(() => {
+    green()
+}, 3000);
+}, 2000);
+
+
+
+
+
+</script>
+</html>
