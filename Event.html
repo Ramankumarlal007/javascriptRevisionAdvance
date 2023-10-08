@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>htnml Events </title>
 </head>
-<body style="background-color: #414141; color: aliceblue;">
+<body style="background-color: #414141; color: rgb(171, 198, 223);">
     <h2>Amazing image</h2>
     <div >
         <ul id="images">
@@ -20,20 +20,26 @@
             <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
             <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
             <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
-            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="prayer" 09,ol0.-.=/.=//......==;/[src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
             <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
         </ul>
+
+        <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""  onclick="alert('owl is looking')"></li> 
+        <!-- this is not good approach of giving onclick method1   this is not a feasible approach it is not scalable -->
+
+
+
    </div>
    <img src="./2.jpg" alt="" srcset="">
 </body>
 <script>
     //approach 1 is to give onclick on html tag
-    // approach 2
+    // approach 2:  this also also not a feasible approach as we get less functionality here ;we not get propagation approach here.
     // document.getElementById('owl').onclick = function(){
     //     alert("owl clicked")
     // }
 
-     // attachEvent()   it was used earlier when internet explorer was used
+     // attachEvent()   it was used earlier when internet explorer was used 
     // jQuery - on     //.on event listener
 
     //to learn these are important
@@ -45,7 +51,7 @@
     // document.getElementById('images').addEventListener('click', function(e){
     //     console.log("clicked inside the ul");
     // }, false)  
-    // by default it is false we give or not it is false but there are some apps which can't run if false is not given
+    // by default it is false we give or not it is false but there are some apps which can't run if false/true is not given
 
 /// mostly we get browser event and environment events
 
@@ -63,32 +69,34 @@
     
    
     
-    document.querySelector('#images').addEventListener('click', function(e){
-        console.log(e.target.tagName);
+        document.querySelector('#images').addEventListener('click', function (e) {
+            console.log(e.target.tagName);
         if (e.target.tagName === 'IMG') {
             console.log(e.target.id);
             let removeIt = e.target.parentNode
             removeIt.remove()
         }
+        })
+       
     
         
-    })
+  
     
     //removeIt.parentNode.removeChild(removeIt)
 </script>
 </html>
 
-<script type="module" src="">
+<!-- <script type="module" src="">
 
    document.getElementById('owl').addEventListener('click',function(e){
         e.preventDefault();
-        e.stopPropagation()  /// it is used to prevent the event bubbling.w
+        e.stopPropagation()  /// it is used to prevent the event bubbling.
         console.log("google clicked");
-    }, false)
+    }, false) -->
 
 
     //eventPropagation: 2 context
-// event bubbling : by defaul this is used, propagation move from inside to outside
+// event bubbling : by defaul this is used(false), propagation move from inside to outside
 
 // event capturing : from outside to inside , clicked inside the ul, owl clicked , true is given there in place of false
 </script>
