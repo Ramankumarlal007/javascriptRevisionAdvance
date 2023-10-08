@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chai aur javascript</title>
+</head>
+<body>
+    <h1>chai aur javascript</h1>
+    <h2 class="headingTwo"></h2>
+    <h3 class="headingThree"></h3>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+let start = document.querySelector("#start");
+let stop =  document.querySelector("#stop");
+
+let headingTwo = document.querySelector('.headingTwo')
+let headingThree = document.querySelector('.headingThree')
+
+let randomCOlor = function () {
+    const red = parseInt(Math.random()*256)
+    const green = parseInt(Math.random()*256)
+    const blue = parseInt(Math.random()*256)
+
+    let color = `rgb(${red},${green},${blue})`
+    return color;
+}
+
+let IntervalId;
+
+let startListener = start.addEventListener('click', function () {
+    //  IntervalId = setInterval(() => {
+    //     console.log('Current Time is:', new Date().toLocaleString());
+    //     // console.log('Current22 Time is:', new Date(Date.now()).toLocaleString());
+        
+    // }, 1000);
+
+    IntervalId = setInterval(() => {
+        headingTwo.innerHTML = new Date().toLocaleString();
+        document.body.style.background = randomCOlor()
+    }, 1000);
+
+})
+
+stop.addEventListener('click', function () {
+    clearInterval(IntervalId);
+})
+
+//dynamic creation of node Element in h3
+let headingIterator = function () {
+let node = document.createTextNode('Rishabh is a good boy')
+let paragraph = document.createElement('p');
+paragraph.appendChild(node)
+paragraph.style.color = randomCOlor()
+paragraph.style.backgroundColor = randomCOlor()
+headingThree.appendChild(paragraph);
+
+}
+// headingIterator()
+
+let iterator = setInterval(() => {
+    headingIterator()
+}, 1000);
+
+ 
+ 
+</script>
+</html>

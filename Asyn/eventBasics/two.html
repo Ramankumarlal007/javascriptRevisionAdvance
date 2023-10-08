@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handler</title>
+</head>
+<body>
+    <h1 class="heading">Chai aur Code</h1>
+    <h2 class="heading2"></h2>
+    <button class="Stopped">Stop</button>
+</body>
+<script>
+    let heading = document.querySelector('.heading');
+    let heading2 = document.querySelector('.heading2');
+    // heading.textContent = 'cool boy Rishabh'
+    let text = "Rishab is a good little boy heading2";
+    // let node = document.createTextNode(text);
+    // let newTExt = heading2.appendChild(node);
+
+
+    let checkFun = () => {
+        heading.textContent = 'cool boy Rishabh changed heading 1'
+        let node = document.createTextNode(text);
+        let newTExt = heading2.appendChild(node);
+
+    }
+  //// Pass the function reference, not the result of the function
+    let trailTimeout = setTimeout(checkFun, 2000);
+
+    let stop = document.querySelector('.Stopped')
+
+    stop.addEventListener('click', function () {
+        clearTimeout(trailTimeout)
+    })
+        
+    
+        s
+        
+        
+
+
+</script>
+</html>
