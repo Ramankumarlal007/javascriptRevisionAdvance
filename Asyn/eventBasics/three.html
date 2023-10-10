@@ -130,7 +130,7 @@
 //     paragraph.innerHTML = paragraphArray[superman]
 //     superman = (superman + 1) % paragraphArray.length;
 //     paragraph.style.color = randomCOlor();
-//     paragraph.style.backgroundColor = randomCOlor();
+//     paragraph.style.backgroundColor = randomCOlor(  );
 
 //     };
 //     paragraphUpdate ()
@@ -193,6 +193,12 @@ play.addEventListener('click', function () {
 pause.addEventListener('click', function () {
   clearInterval(IntervalDetails);
 });
+
+const sayDate = function (str) {
+  console.log(str,Date.now());
+}
+let clear = setInterval(sayDate, 1000, "hi");
+ clearInterval(clear)
 
   </script>
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>unlimitedColor</title>
+    <style>
+      .color {
+        background-color: #414141;
+      }
+
+
+    .centered-div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+      #play,
+      #pause {
+        padding: 5px 12px;
+      }
+    </style>
+  </head>
+
+  <body class="color">
+    <div class="container">
+      <div class="centered-div">
+        <button id="play">play</button>
+        <button id="pause">pause</button>
+      </div>
+    </div>
+
+    <script>
+      let play = document.querySelector('#play')
+      let pause = document.querySelector('#pause')
+
+      let randomColor = function () {
+        let red = Math.floor(Math.random() *256)
+        let green = Math.floor(Math.random() *256)
+        let blue = Math.floor(Math.random() *256)
+
+        let color = `rgb(${red},${green},${blue})`
+        return color;
+      }
+
+      randomColor();
+     
+      let IntervalId;
+
+      play.addEventListener('click', function(){
+        if (!IntervalId) {
+          IntervalId = setInterval(() => {
+          document.body.style.backgroundColor = randomColor();
+        }, 1000);
+        }
+      
+      })
+
+      pause.addEventListener('click', function () {
+        clearInterval(IntervalId);
+        IntervalId = null;
+      })
+
+
+    </script>
+  </body>
+</html>
+
