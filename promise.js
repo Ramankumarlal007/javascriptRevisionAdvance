@@ -1,3 +1,7 @@
+// The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+
+
+
 // //promise /.then takes call back inside itself, ie. resolve and reject. resolve is a method
 //what e the task  we can do :
 // Do an asyn task like
