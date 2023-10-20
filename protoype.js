@@ -1,5 +1,5 @@
 // due to prototype we r getting the functions of new, this, prototype inheritance, arrow function(this), classes.
-// prtotupal behaviour is the behaviourof js, it goes on searching till it get null
+// prtotupal behaviour is the behaviour of js, it goes on searching till it get null
 // prototype of object is at last null
 
 function multiplyBy5(num) {
