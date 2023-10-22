@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lexical Scope and closure</title>
+    <style>
+        body {
+            background-color: #313131;
+            color: rgb(34, 186, 169);
+        }
+
+        #container {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%)
+        }
+    </style>
+</head>
+<body>
+    <div> function inside functionn : lexical scope</div>
+    <div id="container">
+        <button id="orange">orange</button>
+        <button id="green">green</button>
+    </div>
+    <p>
+        In JavaScript, a closure is a function that has access to the variables and scope of its outer (enclosing) function, even after the outer function has finished executing. Closures are a fundamental concept in JavaScript and are commonly used to create private variables, encapsulate functionality, and maintain state.
+
+Here's an example of a closure:
+
+```javascript
+function outerFunction(outerVar) {
+    // This is the outer function
+    return function innerFunction(innerVar) {
+        // This is the inner function, which is a closure
+        console.log(outerVar, innerVar);
+    };
+}
+
+const myClosure = outerFunction("Outer Variable");
+myClosure("Inner Variable"); // Output: "Outer Variable Inner Variable"
+```
+
+In this example:
+
+1. `outerFunction` is the outer function that takes an `outerVar` parameter. It defines and returns an inner function, `innerFunction`, which is a closure.
+
+2. `innerFunction` is the inner function that takes an `innerVar` parameter. It has access to the `outerVar` parameter of the enclosing `outerFunction`.
+
+3. When we call `outerFunction("Outer Variable")`, it returns the `innerFunction`, which is assigned to the `myClosure` variable. Even though the `outerFunction` has completed its execution, the `innerFunction` retains access to the `outerVar`.
+
+4. We can call `myClosure("Inner Variable")`, and the closure will still have access to both the `outerVar` and the `innerVar`, resulting in the expected output.
+
+Closures are powerful because they allow you to maintain state and encapsulate functionality. They are commonly used in scenarios like creating private variables, implementing data hiding, and managing asynchronous code.
+    </p>
+</body>
+
+<script>
+    function initial(newname) {
+    let name = "Rishabh"
+    console.log(`${1}`);
+    // return `${newname}`
+
+    function displayName(secondname) {
+      console.log(`name2 : ${secondname}`);  
+      console.log(name);
+    }
+
+    displayName("kairav");
+
+
+}
+
+let check = initial("flipkart")
+console.log(check);
+</script>
+<script>
+    function outer(){
+        let username = "hitesh"
+        console.log("OUTER", secret);
+        function inner(){
+            let secret = "my123"
+            console.log("inner", username);
+        }
+        function innerTwo(){
+            console.log("innerTwo", username);
+            console.log(secret);
+        }
+        inner()
+        innerTwo()
+
+    }
+    outer()
+    console.log("TOO OUTER", username);
+</script>
+<script>
+    //onclick requires a function to get passed // imp
+
+    // document.getElementById("orange").onclick =document.body.style.backgroundColor = "orange"
+
+    // document.getElementById("green").onclick = document.body.style.backgroundColor = "green"
+
+    //green  is automatically assinged as :
+    
+// The code you provided is causing the background color to turn green immediately because the assignment of the background color to "green" is happening at the point where you're setting the onclick event handler. This means the background color is being set to green as soon as the page loads, not just when you click the element with the id "green."  do we need to pass a funtion as onclick requires a function 
+
+
+//  document.getElementById("orange").onclick = function () {
+//     document.body.style.backgroundColor = "orange"
+//  }
+
+//     document.getElementById("green").onclick = function () {
+//         document.body.style.backgroundColor = "green"
+//     }
+//here it is 2 what if >100 iz there  to do the task?
+
+function clickhandler(color) {
+    // document.body.style.backgroundColor = `${color}`
+  return function backgroundColor () {
+    document.body.style.backgroundColor = `${color}`
+  }
+}
+
+
+document.getElementById("orange").onclick = clickhandler("orange")
+document.getElementById("green").onclick = clickhandler("pink")
+document.getElementById("green").onclick = clickhandler("red")
+document.getElementById("green").onclick = clickhandler("white")
+
+// </script>
+</script>
+</html>
